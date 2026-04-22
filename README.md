@@ -85,6 +85,59 @@ redo():
 ________________________________________
 
 5. Implementasi Program (Python)
+
+   
+undo_stack = []
+redo_stack = []
+
+def push(action):
+    undo_stack.append(action)
+    redo_stack.clear()
+
+
+def undo():
+    if undo_stack:
+        action = undo_stack.pop()
+        redo_stack.append(action)
+        return action
+    return "Tidak ada aksi"
+
+
+def redo():
+    if redo_stack:
+        action = redo_stack.pop()
+        undo_stack.append(action)
+        return action
+    return "Tidak ada aksi"
+
+
+def show():
+    print("Undo:", undo_stack)
+    print("Redo:", redo_stack)
+
+
+while True:
+    print("\n1. Tambah Aksi")
+    print("2. Undo")
+    print("3. Redo")
+    print("4. Lihat Stack")
+    print("5. Keluar")
+
+    pilih = input("Pilih: ")
+
+    if pilih == "1":
+        aksi = input("Aksi: ")
+        push(aksi)
+    elif pilih == "2":
+        print("Undo:", undo())
+    elif pilih == "3":
+        print("Redo:", redo())
+    elif pilih == "4":
+        show()
+    elif pilih == "5":
+        break
+        
+        
   Program di atas menggunakan dua list Python sebagai representasi stack. Operasi append() digunakan sebagai push, sedangkan pop() digunakan untuk mengambil elemen terakhir. Sistem juga mengatur agar redo stack dikosongkan setiap kali ada aksi baru, sehingga menjaga konsistensi alur undo dan redo.
 
 ________________________________________
