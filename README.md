@@ -160,3 +160,5 @@ ________________________________________
 ________________________________________
 8. Link GitHub
 https://github.com/Japa-67/UTS_StrukturData
+9. link presentasi Canva
+ https://canva.link/8iz0nk9pac9jttr
